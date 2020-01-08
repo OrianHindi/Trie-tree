@@ -1,3 +1,5 @@
+#ifndef TRIE_H
+#define TRIE_H
 #include <stdbool.h>
 #define ALPAHBET_SIZE (26)
 #define Char_To_Index(c) ((int)c - (int)'a')
@@ -14,3 +16,4 @@ void print(node**,char[],int);
 void printR(node**,char[],int);
 void freeTrie(node**);
 
+#endif
