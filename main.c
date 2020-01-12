@@ -1,20 +1,21 @@
 #include "Trie.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #define lineSize 1024
 #define wordSize 256
 
-int main(int argc, char const *argv[]){
+int main(int argc, char* argv[]){
 
+   bool isReverse=false;
    char word[wordSize];
    char line[lineSize];
    int counter=0;
    char c;
    int len=0;
    node* root = getNode();
-   fgets(line,sizeof(line),stdin);
-   fgets(line,sizeof(line),stdin);
-
+     if(argc==2 && strcmp(argv[1],"r")==0)
+     isReverse=true;
 
        while(fgets(line,sizeof(line),stdin)){
            counter=0;
@@ -26,6 +27,7 @@ int main(int argc, char const *argv[]){
                    counter++;
                }
                else if(c==' ' || c== '\t' || c== '\n' || c=='\0'){
+                   word[counter]='\0';
                    insert(&root,word);
                    counter=0;
                }
@@ -33,7 +35,13 @@ int main(int argc, char const *argv[]){
            
            
        }
-    print(&root,word,0);
+
+   if(isReverse) {
+       printR(&root,word,0);
+   }
+   else {
+       print(&root,word,0);
+   }
     freeTrie(&root);
    
 
