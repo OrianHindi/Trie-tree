@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
-#define lineSize 1024
-#define wordSize 256
+// #define lineSize 1024
+// #define wordSize 256
 
 int main(int argc, char* argv[]){
 
    bool isReverse=false;
-   char word[wordSize];
-   char line[lineSize];
+   char word[256];
+   char line[1024];
    int counter=0;
    char c;
    int len=0;
@@ -22,6 +22,10 @@ int main(int argc, char* argv[]){
            len=strlen(line);
            for (size_t i = 0; i <len ; i++){
                c = line[i];
+               if(c>=65 && c<=90){
+                   c=c+32;
+
+               }
                if(c>=97 && c<=122 && c!= ' ' && c!= '\t' && c!='\n' && c!='\0'){
                    word[counter]=c;
                    counter++;

@@ -23,6 +23,7 @@ void insert(node** head,char* str){
     size_t level=0;
     node* runner = *head;
 
+
     for (level = 0; level < len; level++)
     {
         index=Char_To_Index(str[level]);
