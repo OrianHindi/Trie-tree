@@ -58,16 +58,17 @@ void printR(node** head,char word[], int level){
     node* runner = * head;
     int i;
     if(runner ==NULL)   return;
-    if(runner->isEndOfWord){
-        word[level]='\0';
-        printf("%s \t %ld \n",word,runner->count);
-    }
+  
     
     for(i=ALPAHBET_SIZE-1;i>=0;i--){
         if(runner->children[i]!=NULL){
             word[level]=runner->children[i]->letter;
             printR(&(runner->children[i]),word,level+1);
         }
+    }
+      if(runner->isEndOfWord){
+        word[level]='\0';
+        printf("%s \t %ld \n",word,runner->count);
     }
 
 }
