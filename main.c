@@ -30,18 +30,21 @@ int main(int argc, char* argv[]){
                      free(word);
                      return -1;
              } 
-              //  free(word);
                 word=(char*)malloc(sizeof(char)*size);
                 strcpy(word,temp);
                 free(temp);
              }
+        
              word[counter]=c;
              counter++;
+            
              
          }
-         if(c==' ' || c=='\n' || c=='\t' || c=='\0' || c==EOF){
+         if((c==' ' || c=='\n' || c=='\t' || c=='\0') && c!=EOF){
              word[counter]='\0';
+             if(word[0]!=' ' && counter>=1){
              insert(&root,word);
+             }
              counter=0;
          }
         if(c==EOF) check=1;
