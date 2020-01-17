@@ -20,16 +20,22 @@ node* getNode(){
 void insert(node** head,char* str){
     int index=0;
     int len = (int)strlen(str);
+    char temp[len];
     size_t level=0;
     node* runner = *head;
+    int i;
+    for(i=0;i<len;i++){
+        if(str[i]!= " ")temp[i]=str[i];
+    }
+    int templen=(int)strlen(temp);
+    if(templen==0) return;
 
-
-    for (level = 0; level < len; level++)
+    for (level = 0; level < templen; level++)
     {
-        index=Char_To_Index(str[level]);
+        index=Char_To_Index(temp[level]);
         if(!runner->children[index]){
             runner->children[index]=getNode();
-            runner->children[index]->letter=str[level];
+            runner->children[index]->letter=temp[level];
         }
         runner=runner->children[index];
     }
