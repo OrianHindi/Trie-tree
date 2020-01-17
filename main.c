@@ -30,7 +30,7 @@ int main(int argc, char* argv[]){
                      free(word);
                      return -1;
              } 
-                word=(char*)malloc(sizeof(char)*size);
+                word=(char*)calloc(size,sizeof(char));
                 strcpy(word,temp);
                 free(temp);
              }
