@@ -22,7 +22,7 @@ int main(int argc, char* argv[]){
      while(c!=EOF || (c==EOF && check!=1)){
          if(c>=65 && c<=90){c=c+32;}
 
-         if(c>=97 && c<=120 && c!=' ' && c!= '\n' && c!='\0' && c!='\t'){
+         if(c>=97 && c<=122 && c!=' ' && c!= '\n' && c!='\0' && c!='\t'){
              if(counter==size){
                  temp=(char*)realloc(word,(size+SIZE_TO_ADD)*sizeof(char));
                  size+=SIZE_TO_ADD;
@@ -40,7 +40,7 @@ int main(int argc, char* argv[]){
             
              
          }
-         if((c==' ' || c=='\n' || c=='\t' || c=='\0') && c!=EOF){
+         if((c==' ' || c=='\n' || c=='\t' || c=='\0') || c==EOF){
              word[counter]='\0';
              if(word[0]!=' ' && counter>=1){
              insert(&root,word);
