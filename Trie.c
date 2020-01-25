@@ -4,7 +4,10 @@
 #include <stdlib.h>
 #include "Trie.h"
 
-
+/**
+ * this function create a new node.
+ * all the fields have been intilizaid accept node letter.(will be initiliaze when insert)
+ * */
 node* getNode(){
     
     node* temp = (node*)malloc(sizeof(node));
@@ -17,6 +20,9 @@ node* getNode(){
     return temp;
 
 }
+/**
+ * this functuin get a word and insert it into the tree.
+ * */
 void insert(node** head,char* str){
     int index=0;
     int len = (int)strlen(str);
@@ -35,6 +41,11 @@ void insert(node** head,char* str){
     runner->isEndOfWord=true;
     runner->count++;
 }
+
+/**
+ * this function print all the tree.
+ * from 'a' letter to 'z'
+ * */
 void print(node** head,char word[], int level){
     node* runner = * head;
     int i;
@@ -52,7 +63,10 @@ void print(node** head,char word[], int level){
     }
 
 }
-
+/**
+ * this function print the tree in reverse.
+ * from z letter to a letter.
+ * */
 void printR(node** head,char word[], int level){
     node* runner = * head;
     int i;
@@ -71,6 +85,10 @@ void printR(node** head,char word[], int level){
     }
 
 }
+
+/**
+ * this function free all the memory have been allocated to the nodes of the tree.
+ * */
 void freeTrie(node** head){
     node* runner = *head;
     for (size_t i = 0; i < ALPAHBET_SIZE; i++)

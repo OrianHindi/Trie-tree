@@ -16,6 +16,8 @@ int main(int argc, char* argv[]){
    int check=0;
    char c=getchar();
    node* root = getNode();
+
+   //check if gonna to print the tree in reverse or straight.
      if(argc==2 && strcmp(argv[1],"r")==0)
      isReverse=true;
 
